@@ -33,8 +33,8 @@ export default defineConfig({
     geolocation: { latitude: -33.8698439, longitude: 151.2082848 },
     screenshot: 'only-on-failure'
   },
-  globalTimeout: 120000,
-  timeout: 120000,
+  timeout: 2 * 60 * 1000,
+  globalTimeout: 25 * 60 * 1000,
   expect: {timeout: 120000},
   /* Configure projects for major browsers */
   projects: [
