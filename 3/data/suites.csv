@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Sep 19 11:52:06 GMT 2024","Thu Sep 19 11:52:14 GMT 2024","8196","chromium","DECIMAL_WEB/TC_AP_008.spec.ts","","","","TC_AP_008 Verify the ""Location"" sub-module redirection",""
+"passed","Thu Sep 19 11:51:57 GMT 2024","Thu Sep 19 11:52:05 GMT 2024","8040","chromium","DECIMAL_WEB/TC_AP_004.spec.ts","","","","TC_AP_004 Verify the ""Location"" sub-module Page is working",""
