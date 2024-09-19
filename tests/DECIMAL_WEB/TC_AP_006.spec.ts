@@ -1,6 +1,6 @@
 import { Page, Locator, test, expect, } from '@playwright/test';
 
-test('TC_AP_008 Verify the "Location" sub-module redirection', { tag: ["@regression_web", "@organization_management", "@location", "@TC_AP_008"] }, async ({ page }) => {
+test('TC_AP_006 Verify the "Function" sub-module redirection', { tag: ["@regression_web", "@organization_management", "@function", "@TC_AP_006"] }, async ({ page }) => {
 
     
 await page.goto('https://preprod-web.vahanacloud.com/admin-portal-test/#/login');
@@ -13,9 +13,9 @@ await page.locator('[formcontrolname="otp"]').fill('123456');
 
 await page.getByRole('button', {name : 'Submit'}).click();
 
-await page.locator('//*[text()="Organization Management"]/ancestor::*[contains(@class, "section-one")]//*[text()="Location"]').click();
+await page.locator('//*[text()="Organization Management"]/ancestor::*[contains(@class, "section-one")]//*[text()="Function"]').click();
 
-await expect(page).toHaveURL(/\/org-management\/location/);
+await expect(page).toHaveURL(/\/org-management\/function/);
 
 
 });
