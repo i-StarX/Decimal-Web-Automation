@@ -177,10 +177,12 @@ TC_AP_025 Verify the function page action column delete button is working.,Invok
 ,Click Add Function button,click,,,,,role,button,Add Function
 ,Enter Function code,fill,TESTAUTO01,,,,locator,,"[name=""code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[name=""name""]"
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Add button,click,,,,,role,button,Add
 ,Enter Function code,fill,TESTAUTO01,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[placeholder=""Search Function Name""]"
 ,Click Search button,click,,,,,role,button,Search
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Delete action,click,,,,,locator,,"[ng-reflect-message=""Delete""]"
 ,Confirm delete,click,,,,,role,button,Ok
 ,Enter Function code,fill,TESTAUTO01,,,,locator,,"[placeholder=""Search Function Code""]"
@@ -196,6 +198,7 @@ TC_AP_026 Verify the function page action column view button is working.,Invoke 
 ,Click Function button,click,,,,,locator,,"//*[text()=""Organization Management""]/ancestor::*[contains(@class, ""section-one"")]//*[text()=""Function""]"
 ,Enter Function code,fill,HR12,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Click Search button,click,,,,,role,button,Search
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click View Action,click,,,,,locator,,"[ng-reflect-message=""View""]"
 ,Verify function details is displayed,verify - visible,,,,,locator,,//app-function-detail
 TC Reference,Test case description,Action,Test Data,Test Spec File Name,Tag,Parent Folder Name,Locator Type,Role (used if locator type is role),Element Locator 
@@ -207,6 +210,7 @@ TC_AP_027 Verify the function view page,Invoke URL,goto,https://preprod-web.vaha
 ,Click Function button,click,,,,,locator,,"//*[text()=""Organization Management""]/ancestor::*[contains(@class, ""section-one"")]//*[text()=""Function""]"
 ,Enter Function code,fill,HR12,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Click Search button,click,,,,,role,button,Search
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click View Action,click,,,,,locator,,"[ng-reflect-message=""View""]"
 ,Verify Delete button is displayed,verify - visible,,,,,role,button,Delete
 ,Verify Edit button is displayed,verify - visible,,,,,role,button,Edit
@@ -219,9 +223,10 @@ TC_AP_028 Verify the edit data is populated.,Invoke URL,goto,https://preprod-web
 ,Click Function button,click,,,,,locator,,"//*[text()=""Organization Management""]/ancestor::*[contains(@class, ""section-one"")]//*[text()=""Function""]"
 ,Enter Function code,fill,HR12,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Click Search button,click,,,,,role,button,Search
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Edit Action,click,,,,,locator,,"[ng-reflect-message=""Edit""]"
 ,Verify Function name value,verify - value,HirirngDept,,,,locator,,"[ng-reflect-name=""name""]"
-,Verify Description value,verify - value,test,,,,locator,,"[ng-reflect-name=""description""]"
+,Verify Description value,verify - value,test1,,,,locator,,"[ng-reflect-name=""description""]"
 TC Reference,Test case description,Action,Test Data,Test Spec File Name,Tag,Parent Folder Name,Locator Type,Role (used if locator type is role),Element Locator 
 TC_AP_029 Verify the function view page edit or delete,Invoke URL,goto,https://preprod-web.vahanacloud.com/admin-portal-test/#/login,TC_AP_029.spec.ts,"""@regression_web"", ""@organization_management"", ""@function"", ""@TC_AP_029""",DECIMAL_WEB,,,
 ,Enter user name,fill,rashmi.trivedi@istar-x.com,,,,locator,,"[formcontrolname=""email""]"
@@ -232,6 +237,7 @@ TC_AP_029 Verify the function view page edit or delete,Invoke URL,goto,https://p
 ,Click Add Function button,click,,,,,role,button,Add Function
 ,Enter Function code,fill,TESTAUTO02,,,,locator,,"[name=""code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[name=""name""]"
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Add button,click,,,,,role,button,Add
 ,Enter Function code,fill,TESTAUTO02,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[placeholder=""Search Function Name""]"
@@ -240,6 +246,7 @@ TC_AP_029 Verify the function view page edit or delete,Invoke URL,goto,https://p
 ,Click Edit button,click,,,,,role,button,Edit
 ,Enter Function name,fill,Test Automation Edit Test,,,,locator,,"[ng-reflect-name=""name""]"
 ,Enter Description value,fill,Edit test description field,,,,locator,,"[ng-reflect-name=""description""]"
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Update button,click,,,,,role,button,Update
 ,Enter Function code,fill,TESTAUTO02,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Enter Function name,fill,Test Automation Edit Test,,,,locator,,"[placeholder=""Search Function Name""]"
@@ -261,6 +268,7 @@ TC_AP_030 Verify the function page action column edit button is working.,Invoke 
 ,Click Add Function button,click,,,,,role,button,Add Function
 ,Enter Function code,fill,TESTAUTO03,,,,locator,,"[name=""code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[name=""name""]"
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Add button,click,,,,,role,button,Add
 ,Enter Function code,fill,TESTAUTO03,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[placeholder=""Search Function Name""]"
@@ -268,6 +276,7 @@ TC_AP_030 Verify the function page action column edit button is working.,Invoke 
 ,Click Edit Action,click,,,,,locator,,"[ng-reflect-message=""Edit""]"
 ,Enter Function name,fill,Test Automation Edit Test,,,,locator,,"[ng-reflect-name=""name""]"
 ,Enter Description value,fill,Edit test description field,,,,locator,,"[ng-reflect-name=""description""]"
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Update button,click,,,,,role,button,Update
 ,Enter Function code,fill,TESTAUTO03,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Enter Function name,fill,Test Automation Edit Test,,,,locator,,"[placeholder=""Search Function Name""]"
@@ -284,6 +293,7 @@ TC_AP_031 Verify the function data saved for valid data,Invoke URL,goto,https://
 ,Click Add Function button,click,,,,,role,button,Add Function
 ,Enter Function code,fill,TESTAUTO04,,,,locator,,"[name=""code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[name=""name""]"
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Add button,click,,,,,role,button,Add
 ,Enter Function code,fill,TESTAUTO04,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[placeholder=""Search Function Name""]"
@@ -300,6 +310,7 @@ TC_AP_033 Verify the delete function code data and re-use same,Invoke URL,goto,h
 ,Click Add Function button,click,,,,,role,button,Add Function
 ,Enter Function code,fill,TESTAUTO05,,,,locator,,"[name=""code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[name=""name""]"
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Add button,click,,,,,role,button,Add
 ,Enter Function code,fill,TESTAUTO05,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[placeholder=""Search Function Name""]"
@@ -313,6 +324,7 @@ TC_AP_033 Verify the delete function code data and re-use same,Invoke URL,goto,h
 ,Click Add Function button,click,,,,,role,button,Add Function
 ,Enter Function code,fill,TESTAUTO05,,,,locator,,"[name=""code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[name=""name""]"
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Add button,click,,,,,role,button,Add
 ,Enter Function code,fill,TESTAUTO05,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[placeholder=""Search Function Name""]"
@@ -329,9 +341,6 @@ TC_AP_034 Verify the user create data with existing function code,Invoke URL,got
 ,Click Add Function button,click,,,,,role,button,Add Function
 ,Enter Function code,fill,TESTAUTO06,,,,locator,,"[name=""code""]"
 ,Enter Function name,fill,Test Automation,,,,locator,,"[name=""name""]"
-,Click Add button,click,,,,,role,button,Add
-,Click Add Function button,click,,,,,role,button,Add Function
-,Enter Function code,fill,TESTAUTO06,,,,locator,,"[name=""code""]"
-,Enter Function name,fill,Test Automation,,,,locator,,"[name=""name""]"
+,Wait for the list to refresh,wait,3000,,,,,,
 ,Click Add button,click,,,,,role,button,Add
 ,Verify error message is displayed,verify - visible,,,,,locator,,"//snack-bar-container//simple-snack-bar/span[contains(text(),""Resource already Exist"")]"

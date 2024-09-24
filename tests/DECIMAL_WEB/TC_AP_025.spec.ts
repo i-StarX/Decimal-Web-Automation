@@ -21,6 +21,8 @@ await page.locator('[name="code"]').fill('TESTAUTO01');
 
 await page.locator('[name="name"]').fill('Test Automation');
 
+await page.waitForTimeout(3000);
+
 await page.getByRole('button', {name : 'Add', exact: true}).click();
 
 await page.locator('[placeholder="Search Function Code"]').fill('TESTAUTO01');
@@ -28,6 +30,8 @@ await page.locator('[placeholder="Search Function Code"]').fill('TESTAUTO01');
 await page.locator('[placeholder="Search Function Name"]').fill('Test Automation');
 
 await page.getByRole('button', {name : 'Search', exact: true}).click();
+
+await page.waitForTimeout(3000);
 
 await page.locator('[ng-reflect-message="Delete"]').click();
 

@@ -19,6 +19,8 @@ await page.locator('[placeholder="Search Function Code"]').fill('HR12');
 
 await page.getByRole('button', {name : 'Search', exact: true}).click();
 
+await page.waitForTimeout(3000);
+
 await page.locator('[ng-reflect-message="View"]').click();
 
 await expect(page.getByRole('button', {name : 'Delete', exact: true})).toBeVisible();

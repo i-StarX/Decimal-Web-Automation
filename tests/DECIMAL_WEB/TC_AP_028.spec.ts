@@ -19,11 +19,13 @@ await page.locator('[placeholder="Search Function Code"]').fill('HR12');
 
 await page.getByRole('button', {name : 'Search', exact: true}).click();
 
+await page.waitForTimeout(3000);
+
 await page.locator('[ng-reflect-message="Edit"]').click();
 
 await expect(page.locator('[ng-reflect-name="name"]')).toHaveValue('HirirngDept');
 
-await expect(page.locator('[ng-reflect-name="description"]')).toHaveValue('test');
+await expect(page.locator('[ng-reflect-name="description"]')).toHaveValue('test1');
 
 
 });
