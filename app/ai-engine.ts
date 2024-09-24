@@ -67,7 +67,7 @@ export default class AIEngine {
               steps = steps + `\nawait page.getByLabel('${result[i].Element_Locator}').fill('${result[i].Test_Data}');\n`
             }
             if (await result[i].Locator_Type == 'role') {
-              steps = steps + `\nawait page.getByRole('${result[i].Role}', {name : '${result[i].Element_Locator}'}).fill('${result[i].Test_Data}');\n`
+              steps = steps + `\nawait page.getByRole('${result[i].Role}', {name : '${result[i].Element_Locator}', exact: true}).fill('${result[i].Test_Data}');\n`
             }
             if (await result[i].Locator_Type == 'locator') {
               steps = steps + `\nawait page.locator('${result[i].Element_Locator}').fill('${result[i].Test_Data}');\n`
@@ -88,7 +88,7 @@ export default class AIEngine {
               steps = steps + `\nawait page.getByLabel('${result[i].Element_Locator}').click();\n`
             }
             if (await result[i].Locator_Type == 'role') {
-              steps = steps + `\nawait page.getByRole('${result[i].Role}', {name : '${result[i].Element_Locator}'}).click();\n`
+              steps = steps + `\nawait page.getByRole('${result[i].Role}', {name : '${result[i].Element_Locator}', exact: true}).click();\n`
             }
             if (await result[i].Locator_Type == 'locator') {
               steps = steps + `\nawait page.locator('${result[i].Element_Locator}').click();\n`
@@ -110,7 +110,7 @@ export default class AIEngine {
               steps = steps + `\nawait expect(page.getByLabel('${result[i].Element_Locator}')).toBeVisible();\n`
             }
             if (await result[i].Locator_Type == 'role') {
-              steps = steps + `\nawait expect(page.getByRole('${result[i].Role}', {name : '${result[i].Element_Locator}'})).toBeVisible();\n`
+              steps = steps + `\nawait expect(page.getByRole('${result[i].Role}', {name : '${result[i].Element_Locator}', exact: true})).toBeVisible();\n`
             }
             if (await result[i].Locator_Type == 'locator') {
               steps = steps + `\nawait expect(page.locator('${result[i].Element_Locator}')).toBeVisible();\n`
@@ -132,7 +132,7 @@ export default class AIEngine {
               steps = steps + `\nawait expect(page.getByLabel('${result[i].Element_Locator}')).toBeEnabled();\n`
             }
             if (await result[i].Locator_Type == 'role') {
-              steps = steps + `\nawait expect(page.getByRole('${result[i].Role}', {name : '${result[i].Element_Locator}'})).toBeEnabled();\n`
+              steps = steps + `\nawait expect(page.getByRole('${result[i].Role}', {name : '${result[i].Element_Locator}', exact: true})).toBeEnabled();\n`
             }
             if (await result[i].Locator_Type == 'locator') {
               steps = steps + `\nawait expect(page.locator('${result[i].Element_Locator}')).toBeEnabled();\n`
