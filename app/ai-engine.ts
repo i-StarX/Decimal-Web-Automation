@@ -156,6 +156,11 @@ export default class AIEngine {
             console.log('Verification step created...');
             steps = steps + `\nawait expect(page.locator('${result[i].Element_Locator}')).toHaveValue('${result[i].Test_Data}');\n`
           }
+
+          if (await result[i].Action == 'wait') {
+            console.log('Wait step created...');
+            steps = steps + `\nawait page.waitForTimeout(${result[i].Test_Data});\n`
+          }
           i++;
           try {
             result[i].TC_description
