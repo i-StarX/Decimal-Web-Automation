@@ -33,7 +33,7 @@ TC Reference,Test case description,Action,Test Data,Test Spec File Name,Tag,Pare
 ,Click Function button,click,,,,,locator,,"//*[text()=""Organization Management""]/ancestor::*[contains(@class, ""section-one"")]//*[text()=""Function""]"
 ,Verify Filter and Search section is visible,verify - visible,,,,,locator,,//app-functions//app-model-search
 ,Verify Add Function button is visible,verify - visible,,,,,role,button,Add Function
-,Verify Add Attribute button is visible,verify - visible,,,,,role,button,Add Attribute
+,Verify Add Attribute button is visible,verify - visible,,,,,role,button,Add Attributes
 ,Verify Approval/Rejection button is visible,verify - visible,,,,,role,button,Approval/Rejection
 ,Verify Function list is visible,verify - visible,,,,,locator,,"//mat-card/mat-card-subtitle[text()=""Function List""]"
 TC Reference,Test case description,Action,Test Data,Test Spec File Name,Tag,Parent Folder Name,Locator Type,Role (used if locator type is role),Element Locator 
@@ -57,7 +57,7 @@ TC_AP_012 Verify the Function Filter & Search option,Invoke URL,goto,https://pre
 ,Verify Function Code field is visible,verify - visible,,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Verify Function Name field is visible,verify - visible,,,,,locator,,"[placeholder=""Search Function Name""]"
 ,Verify Status field is visible,verify - visible,,,,,locator,,"[id=""mat-select-0""]"
-,Verify Clear Filter button is visible,verify - visible,,,,,role,button,Clear Filter
+,Verify Clear Filter button is visible,verify - visible,,,,,role,button,Clear Filters
 ,Verify Search button is visible,verify - visible,,,,,role,button,Search
 TC Reference,Test case description,Action,Test Data,Test Spec File Name,Tag,Parent Folder Name,Locator Type,Role (used if locator type is role),Element Locator 
 TC_AP_013 Verify the Function Code search option is working for vaild inputs,Invoke URL,goto,https://preprod-web.vahanacloud.com/admin-portal-test/#/login,TC_AP_013.spec.ts,"""@regression_web"", ""@organization_management"", ""@function"", ""@TC_AP_013""",DECIMAL_WEB,,,
@@ -133,7 +133,7 @@ TC_AP_021 Verify the Function Clear filter button option,Invoke URL,goto,https:/
 ,Enter Function Code,fill,veryrandomfunctioncode123,,,,locator,,"[placeholder=""Search Function Code""]"
 ,Click Search button,click,,,,,role,button,Search
 ,Verify No Record found message is displayed,verify - visible,,,,,locator,,"//mat-card//div/strong[contains(text(),""No record found"")]"
-,Click Clear Filter button,click,,,,,role,button,Clear Filter
+,Click Clear Filter button,click,,,,,role,button,Clear Filters
 ,Verify No Record found message is hidden,verify - hidden,,,,,locator,,"//mat-card//div/strong[contains(text(),""No record found"")]"
 TC Reference,Test case description,Action,Test Data,Test Spec File Name,Tag,Parent Folder Name,Locator Type,Role (used if locator type is role),Element Locator 
 TC_AP_022 Verify the Function Search button option,Invoke URL,goto,https://preprod-web.vahanacloud.com/admin-portal-test/#/login,TC_AP_022.spec.ts,"""@regression_web"", ""@organization_management"", ""@function"", ""@TC_AP_022""",DECIMAL_WEB,,,
@@ -154,9 +154,10 @@ TC_AP_023 Verify the Function Status search option is Active,Invoke URL,goto,htt
 ,Click Function button,click,,,,,locator,,"//*[text()=""Organization Management""]/ancestor::*[contains(@class, ""section-one"")]//*[text()=""Function""]"
 ,Click Status dropdown,click,,,,,locator,,"[id=""mat-select-0""]"
 ,Click Active option,click,,,,,role,option,Active
+,Click Search button,click,,,,,role,button,Search
 ,Verify Active status is displayed on Function list ,verify - visible,,,,,locator,,"//mat-row[1]/mat-cell[contains(text(),""Active"")][1]"
 TC Reference,Test case description,Action,Test Data,Test Spec File Name,Tag,Parent Folder Name,Locator Type,Role (used if locator type is role),Element Locator 
-TC_AP_024 Verify the Function Status search option is Active,Invoke URL,goto,https://preprod-web.vahanacloud.com/admin-portal-test/#/login,TC_AP_024.spec.ts,"""@regression_web"", ""@organization_management"", ""@function"", ""@TC_AP_024""",DECIMAL_WEB,,,
+TC_AP_024 Verify the Function Status search option is Inactive,Invoke URL,goto,https://preprod-web.vahanacloud.com/admin-portal-test/#/login,TC_AP_024.spec.ts,"""@regression_web"", ""@organization_management"", ""@function"", ""@TC_AP_024""",DECIMAL_WEB,,,
 ,Enter user name,fill,rashmi.trivedi@istar-x.com,,,,locator,,"[formcontrolname=""email""]"
 ,Click Get OTP button,click,,,,,role,button,Get OTP
 ,Enter OTP,fill,123456,,,,locator,,"[formcontrolname=""otp""]"
@@ -164,7 +165,8 @@ TC_AP_024 Verify the Function Status search option is Active,Invoke URL,goto,htt
 ,Click Function button,click,,,,,locator,,"//*[text()=""Organization Management""]/ancestor::*[contains(@class, ""section-one"")]//*[text()=""Function""]"
 ,Click Status dropdown,click,,,,,locator,,"[id=""mat-select-0""]"
 ,Click Inactive option,click,,,,,role,option,Inactive
-,Verify Inactive status is displayed on Function list ,verify - visible,,,,,role,cell,Inactive
+,Click Search button,click,,,,,role,button,Search
+,Verify Inactive status is displayed on Function list ,verify - visible,,,,,locator,,"//mat-row[1]/mat-cell[contains(text(),""Inactive"")][1]"
 TC Reference,Test case description,Action,Test Data,Test Spec File Name,Tag,Parent Folder Name,Locator Type,Role (used if locator type is role),Element Locator 
 TC_AP_025 Verify the function page action column delete button is working.,Invoke URL,goto,https://preprod-web.vahanacloud.com/admin-portal-test/#/login,TC_AP_025.spec.ts,"""@regression_web"", ""@organization_management"", ""@function"", ""@TC_AP_025""",DECIMAL_WEB,,,
 ,Enter user name,fill,rashmi.trivedi@istar-x.com,,,,locator,,"[formcontrolname=""email""]"

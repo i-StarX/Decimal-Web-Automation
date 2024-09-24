@@ -19,6 +19,8 @@ await page.locator('[id="mat-select-0"]').click();
 
 await page.getByRole('option', {name : 'Active', exact: true}).click();
 
+await page.getByRole('button', {name : 'Search', exact: true}).click();
+
 await expect(page.locator('//mat-row[1]/mat-cell[contains(text(),"Active")][1]')).toBeVisible();
 
 

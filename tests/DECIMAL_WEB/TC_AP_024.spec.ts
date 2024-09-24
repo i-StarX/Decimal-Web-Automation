@@ -1,6 +1,6 @@
 import { Page, Locator, test, expect, } from '@playwright/test';
 
-test('TC_AP_024 Verify the Function Status search option is Active', { tag: ["@regression_web", "@organization_management", "@function", "@TC_AP_024"] }, async ({ page }) => {
+test('TC_AP_024 Verify the Function Status search option is Inactive', { tag: ["@regression_web", "@organization_management", "@function", "@TC_AP_024"] }, async ({ page }) => {
 
     
 await page.goto('https://preprod-web.vahanacloud.com/admin-portal-test/#/login');
@@ -19,7 +19,9 @@ await page.locator('[id="mat-select-0"]').click();
 
 await page.getByRole('option', {name : 'Inactive', exact: true}).click();
 
-await expect(page.getByRole('cell', {name : 'Inactive', exact: true})).toBeVisible();
+await page.getByRole('button', {name : 'Search', exact: true}).click();
+
+await expect(page.locator('//mat-row[1]/mat-cell[contains(text(),"Inactive")][1]')).toBeVisible();
 
 
 });

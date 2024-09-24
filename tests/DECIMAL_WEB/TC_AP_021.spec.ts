@@ -23,7 +23,7 @@ await page.getByRole('button', {name : 'Search', exact: true}).click();
 
 await expect(page.locator('//mat-card//div/strong[contains(text(),"No record found")]')).toBeVisible();
 
-await page.getByRole('button', {name : 'Clear Filter', exact: true}).click();
+await page.getByRole('button', {name : 'Clear Filters', exact: true}).click();
 
 
 });

@@ -19,7 +19,7 @@ await expect(page.locator('//app-functions//app-model-search')).toBeVisible();
 
 await expect(page.getByRole('button', {name : 'Add Function', exact: true})).toBeVisible();
 
-await expect(page.getByRole('button', {name : 'Add Attribute', exact: true})).toBeVisible();
+await expect(page.getByRole('button', {name : 'Add Attributes', exact: true})).toBeVisible();
 
 await expect(page.getByRole('button', {name : 'Approval/Rejection', exact: true})).toBeVisible();
 

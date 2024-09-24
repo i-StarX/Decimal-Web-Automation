@@ -21,7 +21,7 @@ await expect(page.locator('[placeholder="Search Function Name"]')).toBeVisible()
 
 await expect(page.locator('[id="mat-select-0"]')).toBeVisible();
 
-await expect(page.getByRole('button', {name : 'Clear Filter', exact: true})).toBeVisible();
+await expect(page.getByRole('button', {name : 'Clear Filters', exact: true})).toBeVisible();
 
 await expect(page.getByRole('button', {name : 'Search', exact: true})).toBeVisible();
 
