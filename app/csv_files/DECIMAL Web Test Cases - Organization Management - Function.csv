@@ -154,7 +154,7 @@ TC_AP_023 Verify the Function Status search option is Active,Invoke URL,goto,htt
 ,Click Function button,click,,,,,locator,,"//*[text()=""Organization Management""]/ancestor::*[contains(@class, ""section-one"")]//*[text()=""Function""]"
 ,Click Status dropdown,click,,,,,locator,,"[id=""mat-select-0""]"
 ,Click Active option,click,,,,,role,option,Active
-,Verify Active status is displayed on Function list ,verify - visible,,,,,role,cell,Active
+,Verify Active status is displayed on Function list ,verify - visible,,,,,locator,,"//mat-row[1]/mat-cell[contains(text(),""Active"")][1]"
 TC Reference,Test case description,Action,Test Data,Test Spec File Name,Tag,Parent Folder Name,Locator Type,Role (used if locator type is role),Element Locator 
 TC_AP_024 Verify the Function Status search option is Active,Invoke URL,goto,https://preprod-web.vahanacloud.com/admin-portal-test/#/login,TC_AP_024.spec.ts,"""@regression_web"", ""@organization_management"", ""@function"", ""@TC_AP_024""",DECIMAL_WEB,,,
 ,Enter user name,fill,rashmi.trivedi@istar-x.com,,,,locator,,"[formcontrolname=""email""]"

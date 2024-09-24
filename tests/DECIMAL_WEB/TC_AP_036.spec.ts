@@ -1,6 +1,6 @@
 import { Page, Locator, test, expect, } from '@playwright/test';
 
-test('TC_AP_006 Verify the "Function" sub-module redirection', { tag: ["@regression_web", "@organization_management", "@function", "@TC_AP_006"] }, async ({ page }) => {
+test('TC_AP_036 Verify the Function Role List option', { tag: ["@regression_web", "@organization_management", "@function_role", "@TC_AP_036"] }, async ({ page }) => {
 
     
 await page.goto('https://preprod-web.vahanacloud.com/admin-portal-test/#/login');
@@ -15,7 +15,13 @@ await page.getByRole('button', {name : 'Submit', exact: true}).click();
 
 await page.locator('//*[text()="Organization Management"]/ancestor::*[contains(@class, "section-one")]//*[text()="Function"]').click();
 
-await expect(page).toHaveURL(/\/org-management\/function/);
+await expect(page.getByRole('columnheader', {name : 'Function Code', exact: true})).toBeVisible();
+
+await expect(page.getByRole('columnheader', {name : 'Function Name', exact: true})).toBeVisible();
+
+await expect(page.getByRole('columnheader', {name : 'Status', exact: true})).toBeVisible();
+
+await expect(page.getByRole('columnheader', {name : 'Action', exact: true})).toBeVisible();
 
 
 });
