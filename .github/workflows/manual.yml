@@ -7,7 +7,7 @@ on:
         description: "Type which test tag you want to run"
         required: false
         default: "@regression_web"
-        
+
 permissions: write-all
 
 jobs:
@@ -15,64 +15,70 @@ jobs:
     timeout-minutes: 120
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-    - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+          npm i
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y xvfb
-        npm i
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: |
+          xvfb-run --auto-servernum npm run tag ${{ inputs.TAG }}
+        env:
+          DISPLAY: ":99"
 
-    - name: Run Playwright tests
-      run: |
-        xvfb-run --auto-servernum npm run tag ${{ inputs.TAG }}
-      env:
-        DISPLAY: ":99"
+      - name: Generate allure report
+        if: always()
+        run: npm run generate-allure
 
-    - name: Generate allure report
-      if: always()
-      run: npm run generate-allure
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: allure-report
+          path: allure-report
+          retention-days: 10
 
-    - name: Upload Allure Report
-      uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: allure-report
-        path: allure-report
-        retention-days: 10
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout `gh-pages` Branch (Clean)
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          path: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
 
-    - name: Load test report history
-      uses: actions/checkout@v3
-      if: always()
-      continue-on-error: true
-      with:
-        ref: gh-pages
-        path: gh-pages
+      - name: Delete Old Report History (Prevent Repo Growth)
+        run: |
+          rm -rf gh-pages/*
+          mkdir -p gh-pages
 
-    - name: Build test report
-      uses: simple-elf/allure-report-action@v1.7
-      if: always()
-      with:
-        gh_pages: gh-pages
-        allure_history: allure-history
-        allure_results: allure-results
-        allure_report: allure-report
-        keep_reports: 10
+      - name: Download Allure Report Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+          path: gh-pages
 
-    - name: Publish test report
-      uses: peaceiris/actions-gh-pages@v3
-      if: always()
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: allure-history
+      - name: Commit and Push New Allure Report
+        run: |
+          cd gh-pages
+          git config --global user.name "rlln-istarx"
+          git config --global user.email "rallen.estrella@istar-x.com"
+          git add .
+          git commit -m "Update Allure Report - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git push --force origin gh-pages
