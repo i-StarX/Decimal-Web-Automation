@@ -13,13 +13,13 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['line'], ['allure-playwright']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -31,16 +31,19 @@ export default defineConfig({
     trace: 'on-first-retry',
     permissions: ['geolocation'],
     geolocation: { latitude: -33.8698439, longitude: 151.2082848 },
-    screenshot: 'only-on-failure'
+    screenshot: 'only-on-failure',
+    headless: false,
+    // storageState: ".auth/session.json"
+
   },
-  timeout: 2 * 60 * 1000,
-  globalTimeout: 25 * 60 * 1000,
-  expect: {timeout: 120000},
+  timeout: 5 * 60 * 1000,
+  globalTimeout: 5 * 60 * 1000,
+  expect: { timeout: 180000 },
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], viewport: { width: 410, height: 800 }, },
     },
 
     // {
@@ -60,7 +63,7 @@ export default defineConfig({
     // },
     // {
     //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
+    //   use: { ...devices['iPhone 12'], viewport: { width: 410, height: 800 }, },
     // },
 
     /* Test against branded browsers. */
