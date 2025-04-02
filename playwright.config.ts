@@ -36,15 +36,15 @@ export default defineConfig({
     // storageState: ".auth/session.json"
 
   },
-  timeout: 5 * 60 * 1000,
-  globalTimeout: 5 * 60 * 1000,
+  timeout: 3 * 60 * 1000,
+  globalTimeout: 3 * 60 * 1000,
   expect: { timeout: 180000 },
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 410, height: 800 }, },
-    },
+    // {
+    //   name: 'chromium',
+    //   use: { ...devices['Desktop Chrome'], viewport: { width: 400, height: 800 }, },
+    // },
 
     // {
     //   name: 'firefox',
@@ -57,10 +57,10 @@ export default defineConfig({
     // },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'], viewport: { width: 410, height: 800 }, },
+    },
     // {
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'], viewport: { width: 410, height: 800 }, },
