@@ -33,17 +33,34 @@ export default defineConfig({
     geolocation: { latitude: -33.8698439, longitude: 151.2082848 },
     screenshot: 'only-on-failure',
     headless: false,
-    // storageState: ".auth/session.json"
-
+    launchOptions: {
+      slowMo: 500,
+    },
   },
-  timeout: 3 * 60 * 1000,
-  globalTimeout: 3 * 60 * 1000,
-  expect: { timeout: 180000 },
+  timeout: 1 * 60 * 1000,
+  globalTimeout: 1 * 60 * 1000,
+  expect: { timeout: 60000 },
   /* Configure projects for major browsers */
   projects: [
+    {
+      name: 'desktop',
+      testMatch: ['**/tests/web/**/*.spec.ts'],
+      use: {
+        viewport: { width: 1280, height: 800 },
+        browserName: 'chromium',
+      },
+    },
+    {
+      name: 'mobile',
+      testMatch: ['**/tests/mobile/**/*.spec.ts'],
+      use: {
+        ...devices['iPhone 13'],
+        browserName: 'chromium',
+      },
+    },
     // {
     //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'], viewport: { width: 400, height: 800 }, },
+    //   use: { ...devices['Desktop Chrome'], },
     // },
 
     // {
@@ -57,10 +74,10 @@ export default defineConfig({
     // },
 
     /* Test against mobile viewports. */
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'], viewport: { width: 410, height: 800 }, },
-    },
+    // {
+    //   name: 'Mobile Chrome',
+    //   use: { ...devices['Pixel 5'], viewport: { width: 410, height: 800 }, },
+    // },
     // {
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'], viewport: { width: 410, height: 800 }, },
