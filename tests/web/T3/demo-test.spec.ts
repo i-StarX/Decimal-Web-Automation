@@ -3,7 +3,7 @@ import * as allure from "allure-js-commons";
 import '../../hooks/test.setup';
 
 
-test('Demo', { tag: ["@testmac123", "@testmac"] }, async ({ page }, testInfo) => {
+test('Demo', { tag: ["@testmac123"] }, async ({ page }, testInfo) => {
 
     
 await allure.step("Navigate to https://sandbox.t3workforce.com/T3/faces/T3.jspx : https://sandbox.t3workforce.com/T3/faces/T3.jspx", async() =>{ await page.goto('https://sandbox.t3workforce.com/T3/faces/T3.jspx');});
