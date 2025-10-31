@@ -1,0 +1,137 @@
+{
+  "config": {
+    "configFile": "C:\\automation-project\\Decimal-Web-Automation\\playwright.config.ts",
+    "rootDir": "C:/automation-project/Decimal-Web-Automation/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "C:\\automation-project\\Decimal-Web-Automation\\setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 60000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/automation-project/Decimal-Web-Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "C:/automation-project/Decimal-Web-Automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/tests/web/**/*.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/automation-project/Decimal-Web-Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "C:/automation-project/Decimal-Web-Automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/tests/mobile/**/*.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/automation-project/Decimal-Web-Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "desktop1",
+        "name": "desktop",
+        "testDir": "C:/automation-project/Decimal-Web-Automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/tests/api/**/*.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.45.3",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "api\\testapivalidation\\get_api_test.spec.ts",
+      "file": "api/testapivalidation/get_api_test.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "get api test",
+          "ok": true,
+          "tags": [
+            "testapivalidation"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop1",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 312,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-10-29T06:23:53.656Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d8c424924111991d475-08325bf298d83b4a2dd2",
+          "file": "api/testapivalidation/get_api_test.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-10-29T06:23:43.248Z",
+    "duration": 10742.522,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
